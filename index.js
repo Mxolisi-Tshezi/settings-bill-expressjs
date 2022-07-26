@@ -2,7 +2,7 @@ const express = require('express');
 const exphbs  = require('express-handlebars');
 const bodyParser =require('body-parser');
 const SettingsBill = require('./settingsBill');
-//  const moment = require('moment');
+ const moment = require('moment');
 
 const app = express();
 const settingsBill = SettingsBill();
@@ -33,7 +33,6 @@ app.post('/settings', function(req,res){
         criticalLevel: req.body.criticalLevel
     });
 
-  //  console.log(settingsBill.getSettings());
     res.redirect('/');
 });
 
