@@ -1,4 +1,3 @@
-
 module.exports = function SettingsBill() {
     let callCost;
     let smsCost;
@@ -6,7 +5,6 @@ module.exports = function SettingsBill() {
     let criticalLevel; 
   
     let actionList = [];
-  
     function setSettings (settings) {
         smsCost = Number(settings.smsCost);
         callCost = Number(settings.callCost);
@@ -14,16 +12,10 @@ module.exports = function SettingsBill() {
         criticalLevel = settings.criticalLevel;
     }
   
-    function getSettings
-    () {
-        return {
-            smsCost,
-            callCost,
-            warningLevel,
-            criticalLevel
+    function getSettings(){
+        return { smsCost,callCost,warningLevel,criticalLevel
         }
     }
-  
     function recordAction(action) {
   
         let cost = 0;
