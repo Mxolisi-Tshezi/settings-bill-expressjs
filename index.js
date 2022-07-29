@@ -3,7 +3,7 @@ const exphbs  = require('express-handlebars');
 const bodyParser =require('body-parser');
 const SettingsBill = require('./settings-bill');
  const moment = require('moment');
-//const settingsBill1 = require('./settings-bill1');
+const settingsBill1 = require('./settings-bill1');
 
 const app = express();
 const settingsBill = SettingsBill();
@@ -34,7 +34,6 @@ app.post('/settings', function(req,res){
         criticalLevel: req.body.criticalLevel
     });
 
-   // console.log(settingsBill.getSettings());
     res.redirect('/');
 });
 
@@ -48,7 +47,7 @@ app.get('/actions', function(req,res){
     let bills = settingsBill.actions()
 
     for(let key of bills){
-        key.timestring = moment(key.timestamp,'MMMM Do YYYY, h:mm:ss' ).fromNow()
+        key.timestamp = moment(key.timestamp,'MMMM Do YYYY, h:mm:ss' ).fromNow()
     }
     res.render("actions",{
         actions: bills
