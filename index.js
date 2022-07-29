@@ -2,9 +2,7 @@ const express = require('express');
 const exphbs  = require('express-handlebars');
 const bodyParser =require('body-parser');
 const SettingsBill = require('./settings-bill');
- const moment = require('moment');
-const settingsBill1 = require('./settings-bill1');
-
+const moment = require('moment');
 const app = express();
 const settingsBill = SettingsBill();
  app.engine('handlebars', exphbs.engine({defaultLayout: 'main'}));
@@ -64,5 +62,5 @@ app.get('/actions/:actionType', function(req,res){
 });
 const PORT = process.env.PORT || 3007
 app.listen(PORT, function(){
-    console.log('APP STARTED AT PORT', PORT)
+    console.log('App starting on port', PORT)
 });
