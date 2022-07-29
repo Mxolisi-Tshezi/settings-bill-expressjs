@@ -1,8 +1,9 @@
 const express = require('express');
 const exphbs  = require('express-handlebars');
 const bodyParser =require('body-parser');
-const SettingsBill = require('./settingsBill');
-const moment = require('moment');
+const SettingsBill = require('./settings-bill1');
+ const moment = require('moment');
+//const settingsBill1 = require('./settings-bill1');
 
 const app = express();
 const settingsBill = SettingsBill();
@@ -33,6 +34,7 @@ app.post('/settings', function(req,res){
         criticalLevel: req.body.criticalLevel
     });
 
+   // console.log(settingsBill.getSettings());
     res.redirect('/');
 });
 
@@ -46,7 +48,7 @@ app.get('/actions', function(req,res){
     let bills = settingsBill.actions()
 
     for(let key of bills){
-        key.timestamp = moment(key.timestamp,'MMMM Do YYYY, h:mm:ss' ).fromNow()
+        key.timestring = moment(key.timestamp,'MMMM Do YYYY, h:mm:ss' ).fromNow()
     }
     res.render("actions",{
         actions: bills
@@ -61,8 +63,7 @@ app.get('/actions/:actionType', function(req,res){
 
     res.render("actions",{actions: settingsBill.actionsFor(actionType)});
 });
-let PORT = process.env.PORT || 3007;
-
+const PORT = process.env.PORT || 3011
 app.listen(PORT, function(){
-  console.log('App starting on port', PORT);
+    console.log('APP STARTED AT PORT', PORT)
 });

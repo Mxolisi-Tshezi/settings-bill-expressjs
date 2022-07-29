@@ -1,7 +1,8 @@
 const assert = require('assert');
-const SettingsBill = require('../settingsBill');
 
-describe('in settingsBill', function(){
+const SettingsBill = require('../settings-bill');
+
+describe('settings-bill', function(){
 
     const settingsBill = SettingsBill();
 
