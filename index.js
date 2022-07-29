@@ -1,7 +1,7 @@
 const express = require('express');
 const exphbs  = require('express-handlebars');
 const bodyParser =require('body-parser');
-const SettingsBill = require('./settings-bill1');
+const SettingsBill = require('./settings-bill');
  const moment = require('moment');
 //const settingsBill1 = require('./settings-bill1');
 
