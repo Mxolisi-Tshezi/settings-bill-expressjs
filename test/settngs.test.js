@@ -19,7 +19,7 @@ describe('in settingsBill', function(){
         });
 
         assert.deepEqual({
-            smsCost: 2.35,
+            smsCost: 2.65,
             callCost: 3.35,
             warningLevel: 30,
             criticalLevel: 40
