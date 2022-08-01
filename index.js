@@ -45,7 +45,7 @@ app.get('/actions', function(req,res){
     let bills = settingsBill.actions()
 
     for(let key of bills){
-        key.timestring = moment(key.timestamp,'dddd, MMMM Do YYYY, h:mm:ss' ).fromNow()
+        key.timestring = moment(key.timestamp,'dddd, MMMM Do YYYY, h:mm:ss a' ).fromNow()
     }
     res.render("actions",{
         actions: bills
