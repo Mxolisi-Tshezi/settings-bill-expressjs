@@ -3,6 +3,7 @@ const exphbs  = require('express-handlebars');
 const bodyParser =require('body-parser');
 const SettingsBill = require('./settings-bill');
 const moment = require('moment');
+moment().format();
 const app = express();
 const settingsBill = SettingsBill();
  app.engine('handlebars', exphbs.engine({defaultLayout: 'main'}));
@@ -44,7 +45,7 @@ app.get('/actions', function(req,res){
     let bills = settingsBill.actions()
 
     for(let key of bills){
-        key.timestamp = moment(key.timestamp,'MMMM Do YYYY, h:mm:ss' ).fromNow()
+        key.timestring = moment(key.timestamp,'dddd, MMMM Do YYYY, h:mm:ss' ).fromNow()
     }
     res.render("actions",{
         actions: bills
